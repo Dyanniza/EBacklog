@@ -15,4 +15,9 @@ public class testSteps {
     public void test (){
 
      }
+
+    @Given("^I navigate to login page$")
+    public void I_navigate_to_page(){
+
+    }
 }

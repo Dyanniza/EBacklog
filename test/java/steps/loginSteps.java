@@ -3,31 +3,40 @@ package steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import framework.driverManager;
+import framework.DriverManager;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
  * Created by ceciliachalar on 11/9/2015.
  */
 
-public class loginSteps {
-    private driverManager easyBacklog = driverManager.getInstance();
-    private WebDriver driver;
+public class LoginSteps {
 
+    private DriverManager automation = DriverManager.getInstance();
+    private WebDriver driver;
+    private String url = "https://easybacklog.com/users/sign_in";
+    private String userName = "CeciliaChalar";
     @Given("^I navigate to login page$")
-    public void navigateLoginPage(String url){
-        driver = easyBacklog.openBrowser();
+    public void I_navigate_to_login_page(){
+        driver = automation.getWebDriver();
         driver.get(url);
 
     }
-    @When("^I loginSteps as \"(.*?)\" with password\"(.*?)\"$")
-    public void I_login_as_with_password(String userName,String userPassword){
-        //mainPage = loginPage.loginSuccessful(userName,userPassword);
+    @When("^I login as \"(.*?)\" with password \"(.*?)\"$")
+    public void login(String userEmail,String userPassword){
+        driver.findElement(By.id("user_email")).sendKeys(userEmail);
+        driver.findElement(By.id("user_password")).sendKeys(userPassword);
 
     }
-    @Then("^I loginSteps as \"(.*?)\" with password\"(.*?)\"$")
-    public void verifyMainBacklogPageIsDisplayed(){
+    @Then("^I should login to EasyBacklog succesfully$")
+    public void verifyMainPageIsDisplayed(){
+        driver.findElement(By.name("commit")).click();
+        Assert.assertTrue("Login succesfully",driver.findElements(By.partialLinkText(userName)).size()!=0);
+
         //mainPage = loginPage.loginSuccessful(userName,userPassword);
         //assertTrue(mainPage)
     }
+
 }

@@ -5,7 +5,7 @@ Feature: Test
     Then I should login to EasyBacklog succesfully
 
   @smokeTest
-  Scenario: users should be able to login using valid credentials
+  Scenario: user should be able to login using valid credentials
     Given I navigate to login page
     When I login as "ceciliachalar" with password "Contro123"
     Then I should login to EasyBacklog succesfully

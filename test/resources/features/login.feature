@@ -5,18 +5,18 @@ Feature: login
   @smokeTest
   Scenario: users should be able to login using valid credentials
     Given I navigate to login page
-    When I login as "ceciliachalar" with password "Contro123"
+    When I login as "ceciliachalar" with password "Control123"
     Then I should login to EasyBacklog succesfully
 
   @smokeTest
   Scenario Outline: : Users should be able to login using valid credentials
-    Given I navigate to login page <url>
+    Given I navigate to login page
     When I login as "<User Name>" with password "<Password>"
     Then I should login to EasyBacklog succesfully
 
   Examples:
-    |url                                  |User Name                        |Password  |
-    |https://easybacklog.com/users/sign_in|cecilia.chalar@fundacion-jala.org|Control123|
+    |User Name                        |Password  |
+    |cecilia.chalar@fundacion-jala.org|Control123|
 
   @negativeFunctional
   Scenario Outline: Users should not be able to login using invalid credentials

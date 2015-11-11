@@ -1,8 +1,5 @@
 package framework;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,18 +12,19 @@ import java.util.concurrent.TimeUnit;
  * Time: 9:53 AM
  * To change this template use File | Settings | File Templates.
  */
-public class driverManager {
+public class DriverManager {
     private WebDriver driver;
     private WebDriverWait wait;
     private WebDriver mozilla = null;
 
-    private static driverManager instance = null;
+    private static DriverManager instance = null;
 
-    protected driverManager(){
-        openBrowser();
+    protected DriverManager(){
+        getWebDriver();
+        getWait();
     }
 
-    public WebDriver openBrowser() {
+    public WebDriver getWebDriver() {
         if (mozilla == null){
             driver = new FirefoxDriver();
             mozilla = driver;
@@ -40,9 +38,13 @@ public class driverManager {
             return driver;
     }
 
-    public static driverManager getInstance(){
+    public WebDriverWait getWait(){
+        return wait;
+    }
+
+    public static DriverManager getInstance(){
         if (instance == null){
-            instance = new driverManager();
+            instance = new DriverManager();
         }
         return instance;
     }
