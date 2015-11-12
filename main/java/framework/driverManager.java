@@ -48,5 +48,8 @@ public class DriverManager {
         }
         return instance;
     }
+    public void closeDriver(){
+        driver.close();
+    }
 
 }

@@ -15,25 +15,3 @@ Then a message "Sprint 1 completed" is displayed
     And a the Sprint Completed Page should be displayed
 
 
-//para  data driven    osea  se corre el test case porlas veces  q contanga example
-Scenario Outline:..........
-Given I ...........
-When I..........  login to web as: <fila> with password <value>
-Then I .......... se usa con un "should"
-    and....
-
-Example
-fila|value
-pass|
-user|control123
-Implementacion lineal valores separados por  comas "xx,yy,zz" , el test  se ejecuta una ves  en el escenario
-
-
-//backgroung  se ejecuta antes de cada  test como un before each
-Background:
-    Login
-
-//hooks
-metodo after
-con tag
-q se ejecutara despues  de cada  tag

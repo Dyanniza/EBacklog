@@ -7,6 +7,8 @@ import framework.DriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ui.pages.LoginPage;
+import ui.pages.MainPage;
 
 /**
  * Created by ceciliachalar on 11/9/2015.
@@ -18,6 +20,10 @@ public class LoginSteps {
     private WebDriver driver;
     private String url = "https://easybacklog.com/users/sign_in";
     private String userName = "CeciliaChalar";
+
+    private LoginPage loginPage;
+    private MainPage mainPage;
+
     @Given("^I navigate to login page$")
     public void I_navigate_to_login_page(){
         driver = automation.getWebDriver();
@@ -37,6 +43,14 @@ public class LoginSteps {
 
         //mainPage = loginPage.loginSuccessful(userName,userPassword);
         //assertTrue(mainPage)
+    }
+
+    @Then("^I should not login to EasyBacklog$")
+    public void verifyLoginPageDisplayed(){
+        //String errMess = driver.findElement(By.className("error")).getText();
+        //Assert.assertEquals("  Invalid email or password. ",errMess);
+        Assert.assertEquals("Log in : easyBacklog", driver.getTitle());
+        System.out.print(driver.getTitle());
     }
 
 }
