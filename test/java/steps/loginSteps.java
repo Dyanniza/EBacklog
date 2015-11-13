@@ -29,12 +29,14 @@ public class LoginSteps {
         driver = automation.getWebDriver();
         driver.get(url);
 
+
+
     }
     @When("^I login as \"(.*?)\" with password \"(.*?)\"$")
     public void login(String userEmail,String userPassword){
-        driver.findElement(By.id("user_email")).sendKeys(userEmail);
-        driver.findElement(By.id("user_password")).sendKeys(userPassword);
-
+        //driver.findElement(By.id("user_email")).sendKeys(userEmail);
+        //driver.findElement(By.id("user_password")).sendKeys(userPassword);
+        mainPage = loginPage.loginOk(userEmail,userPassword);
     }
     @Then("^I should login to EasyBacklog succesfully$")
     public void verifyMainPageIsDisplayed(){

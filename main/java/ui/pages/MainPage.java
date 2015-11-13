@@ -1,5 +1,6 @@
 package ui.pages;
 
+import org.openqa.selenium.support.PageFactory;
 import ui.BasePageObject;
 
 /**
@@ -15,5 +16,9 @@ public class MainPage extends BasePageObject {
     @Override
     public void waitUntilPageObjectIsLoaded() {
 
+    }
+
+    public void goToAssertInfoView(){
+        //PageFactory
     }
 }

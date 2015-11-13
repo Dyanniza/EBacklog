@@ -32,8 +32,8 @@ public class LoginPage extends BasePageObject{
     @FindBy(className = "error")
     WebElement errorMessage;
 
-    public WebDriver driver;
-    public WebDriverWait wait;
+   // public WebDriver driver;
+   // public WebDriverWait wait;
 
     public LoginPage(){
         PageFactory.initElements(driver,this);
