@@ -19,7 +19,7 @@ Feature: login
     |cecilia.chalar@fundacion-jala.org|Control123|
 
   @negativeFunctional
-  Scenario Outline: Users should not be able to login using invalid credentials+
+  Scenario Outline: Users should not be able to login using invalid credentials
     Given I navigate to login page
     When I login as "<User Name>" with password "<Password>"
     Then I should not login to EasyBacklog

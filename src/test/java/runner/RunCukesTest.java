@@ -1,14 +1,16 @@
 package runner;
 
 import common.CommonMethods;
-import cucumber.api.CucumberOptions;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 import framework.DriverManager;
-import org.apache.log4j.Logger;
 import org.testng.annotations.AfterTest;
 
 /**
- * Created by silvia valencia on 11/9/2015.
+ * Created with IntelliJ IDEA.
+ * User: ceciliachalar
+ * Date: 11/11/15
+ * Time: 3:55 PM
+ * To change this template use File | Settings | File Templates.
  */
 public class RunCukesTest  extends AbstractTestNGCucumberTests {
 

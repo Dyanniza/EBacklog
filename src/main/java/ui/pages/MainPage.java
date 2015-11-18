@@ -18,6 +18,10 @@ public class MainPage extends BasePageObject {
     @FindBy(id = "user_name")
     @CacheLookup
     WebElement userName;
+    @FindBy(id = "user_name")
+    @CacheLookup
+    WebElement backlogButton;
+
 
     public MainPage() {
         PageFactory.initElements(driver,this);
@@ -34,7 +38,7 @@ public class MainPage extends BasePageObject {
 
     }
     public void goToAssertInfoView(){
-        //PageFactory
+
     }
 
 
