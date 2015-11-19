@@ -15,12 +15,13 @@ import ui.BasePageObject;
  * To change this template use File | Settings | File Templates.
  */
 public class MainPage extends BasePageObject {
-    @FindBy(id = "user_name")
-    @CacheLookup
-    WebElement userName;
-    @FindBy(id = "user_name")
+    @FindBy(linkText = "Create a new backlog")
     @CacheLookup
     WebElement backlogButton;
+
+    @FindBy(id = "user_name")
+    @CacheLookup
+    WebElement backlogButton2;
 
 
     public MainPage() {
@@ -31,7 +32,7 @@ public class MainPage extends BasePageObject {
     @Override
     public void waitUntilPageObjectIsLoaded() {
 
-        wait.until(ExpectedConditions.visibilityOf(userName));
+        wait.until(ExpectedConditions.visibilityOf(backlogButton));
 
     }
     public void createBacklog(){
@@ -40,7 +41,9 @@ public class MainPage extends BasePageObject {
     public void goToAssertInfoView(){
 
     }
-
+    public boolean isBacklogsDisplayed(){
+        return (backlogButton.getText().equalsIgnoreCase("Create a new backlog"))? true : false;
+    }
 
     public String getPageTitle(){
         return driver.getTitle();

@@ -29,6 +29,8 @@ public class LoginPage extends BasePageObject{
     @FindBy(className = "error")
     WebElement errorMessage;
 
+    public String pageTitle = "Log in : easyBacklog";
+
    // public WebDriver driver;
    // public WebDriverWait wait;
 
@@ -79,8 +81,14 @@ public class LoginPage extends BasePageObject{
     public String getErrorMessage() {
         return errorMessage.getText();
     }
+    public boolean isLoginPage(){
+        return (pageTitle.equalsIgnoreCase(getPageTitle()))? true : false;
+
+        //(backlogButton.getText().equalsIgnoreCase("Create a new backlog"))? true : false;
+    }
 
     public String getPageTitle(){
+        System.out.print(driver.getTitle());
         return driver.getTitle();
     }
 }
